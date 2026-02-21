@@ -145,7 +145,7 @@ const fadeUp = {
 
 const Classes = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background scroll-smooth">
       <Navbar />
 
       {/* Hero */}
@@ -170,17 +170,18 @@ const Classes = () => {
       </section>
 
       {/* What Students Will Learn */}
-      <section className="py-24 bg-ivory">
+      <section className="py-24 bg-warm-cream mandala-bg">
         <div className="container mx-auto px-4">
           <motion.div {...fadeUp} className="text-center mb-4">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-deep-crimson">
+            <p className="font-ornate text-secondary text-lg italic mb-2">Our Curriculum</p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
               What Students Will Learn
             </h2>
           </motion.div>
           <OrnamentDivider />
           <motion.p
             {...fadeUp}
-            className="text-center font-body text-foreground/70 max-w-3xl mx-auto mt-4 mb-12"
+            className="text-center font-body text-muted-foreground max-w-3xl mx-auto mt-4 mb-12"
           >
             Nritya Kalp Dance Academy offers a structured journey through classical technique,
             expression, rhythm and stage performance — helping every learner grow with grace,
@@ -193,30 +194,30 @@ const Classes = () => {
                 key={item.title}
                 {...fadeUp}
                 transition={{ delay: i * 0.05 }}
-                className="bg-background rounded-lg border border-border p-6 hover:shadow-lg transition-shadow"
+                className="bg-card rounded-sm border border-gold/20 p-6 hover:border-gold/50 hover:shadow-xl transition-all"
               >
-                <div className="w-14 h-14 rounded-lg bg-deep-crimson/10 flex items-center justify-center mb-4">
-                  <item.icon className="w-7 h-7 text-deep-crimson" />
+                <div className="w-14 h-14 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center mb-4">
+                  <item.icon className="w-7 h-7 text-gold" />
                 </div>
-                <h3 className="font-display text-lg font-bold text-deep-crimson mb-2">{item.title}</h3>
-                <p className="font-body text-sm text-foreground/70">{item.desc}</p>
+                <h3 className="font-display text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                <p className="font-body text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
           </div>
 
-          <motion.div {...fadeUp} className="flex justify-center gap-4 mt-12">
-            <Link
-              to="/#contact"
-              className="px-8 py-3 bg-deep-crimson text-primary-foreground font-semibold rounded-md hover:bg-deep-crimson/90 transition-colors"
+          <motion.div {...fadeUp} className="flex flex-col sm:flex-row justify-center gap-4 mt-12">
+            <a
+              href="/#contact"
+              className="inline-block px-8 py-4 bg-primary text-primary-foreground font-semibold text-lg rounded-sm border-2 border-gold/50 hover:bg-primary/80 transition-all hover:border-gold shadow-lg shadow-primary/30 text-center"
             >
               Enroll Now!
-            </Link>
-            <Link
-              to="/#schedule"
-              className="px-8 py-3 border-2 border-deep-crimson text-deep-crimson font-semibold rounded-md hover:bg-deep-crimson/10 transition-colors"
+            </a>
+            <a
+              href="/#schedule"
+              className="inline-block px-8 py-4 bg-transparent text-secondary font-semibold text-lg rounded-sm border-2 border-gold/40 hover:bg-gold/10 transition-all text-center"
             >
               View Tomorrow's Schedule
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -225,6 +226,7 @@ const Classes = () => {
       <section className="py-24 section-dark">
         <div className="container mx-auto px-4">
           <motion.div {...fadeUp} className="text-center mb-4">
+            <p className="font-ornate text-gold text-lg italic mb-2">Structured Learning</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground">
               Class Levels
             </h2>
@@ -243,7 +245,7 @@ const Classes = () => {
                 key={cls.level}
                 {...fadeUp}
                 transition={{ delay: i * 0.1 }}
-                className="bg-ivory/10 backdrop-blur border border-gold/20 rounded-lg p-8 hover:border-gold/40 transition-colors"
+                className="bg-ivory/10 backdrop-blur border border-gold/20 rounded-sm p-8 hover:border-gold/50 transition-colors"
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="px-3 py-1 text-xs font-semibold rounded-full bg-deep-crimson/15 text-gold">
@@ -260,17 +262,17 @@ const Classes = () => {
                 </div>
                 <div className="flex gap-3 mt-6">
                   {cls.buttons.map((btn) => (
-                    <Link
+                    <a
                       key={btn.label}
-                      to={btn.href}
+                      href={btn.href}
                       className={
                         btn.primary
-                          ? "px-5 py-2 text-sm font-semibold bg-deep-crimson text-primary-foreground rounded-md hover:bg-deep-crimson/90 transition-colors"
-                          : "px-5 py-2 text-sm font-semibold border border-deep-crimson text-gold rounded-md hover:bg-deep-crimson/10 transition-colors"
+                          ? "px-5 py-2 text-sm font-semibold bg-primary text-primary-foreground rounded-sm border border-gold/50 hover:bg-primary/80 transition-all"
+                          : "px-5 py-2 text-sm font-semibold border border-gold/40 text-gold rounded-sm hover:bg-gold/10 transition-all"
                       }
                     >
                       {btn.label}
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </motion.div>
@@ -285,20 +287,21 @@ const Classes = () => {
       </section>
 
       {/* Fee Structure */}
-      <section className="py-24 bg-ivory">
+      <section className="py-24 bg-warm-cream mandala-bg">
         <div className="container mx-auto px-4">
           <motion.div {...fadeUp} className="text-center mb-4">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-deep-crimson">
+            <p className="font-ornate text-secondary text-lg italic mb-2">Investment in Art</p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
               Fee Structure
             </h2>
           </motion.div>
           <OrnamentDivider />
           <motion.div {...fadeUp} className="text-center mt-4 mb-12 space-y-1">
-            <p className="font-body text-foreground/70">Nritya Kalp Dance Academy</p>
-            <p className="font-body text-foreground/60 text-sm">
+            <p className="font-body text-foreground">Nritya Kalp Dance Academy</p>
+            <p className="font-body text-muted-foreground text-sm">
               Affiliated with Prayag Sangeet Samiti, Prayagraj — Registered under MSME
             </p>
-            <p className="font-body text-deep-crimson text-sm">📍 Paharganj, New Delhi – 110055</p>
+            <p className="font-body text-secondary text-sm">📍 Paharganj, New Delhi – 110055</p>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -307,31 +310,31 @@ const Classes = () => {
                 key={card.title}
                 {...fadeUp}
                 transition={{ delay: i * 0.08 }}
-                className="bg-background rounded-lg border border-border p-6 text-center hover:shadow-lg transition-shadow"
+                className="bg-card rounded-sm border border-gold/20 p-6 text-center hover:border-gold/50 hover:shadow-xl transition-all"
               >
                 <h3 className="font-display text-lg font-bold text-foreground mb-1">{card.title}</h3>
                 {card.extra && (
-                  <p className="text-xs text-foreground/50 mb-1">{card.extra}</p>
+                  <p className="text-xs text-muted-foreground mb-1">{card.extra}</p>
                 )}
-                <p className="font-display text-3xl font-bold text-deep-crimson my-3">{card.price}</p>
-                <p className="text-sm text-foreground/60">{card.sub}</p>
+                <p className="font-display text-3xl font-bold text-gold my-3">{card.price}</p>
+                <p className="text-sm text-muted-foreground">{card.sub}</p>
               </motion.div>
             ))}
           </div>
 
-          <motion.div {...fadeUp} className="flex justify-center gap-4 mt-12">
-            <Link
-              to="/#contact"
-              className="px-8 py-3 bg-deep-crimson text-primary-foreground font-semibold rounded-md hover:bg-deep-crimson/90 transition-colors"
+          <motion.div {...fadeUp} className="flex flex-col sm:flex-row justify-center gap-4 mt-12">
+            <a
+              href="/#contact"
+              className="inline-block px-8 py-4 bg-primary text-primary-foreground font-semibold text-lg rounded-sm border-2 border-gold/50 hover:bg-primary/80 transition-all hover:border-gold shadow-lg shadow-primary/30 text-center"
             >
               Apply for Admission
-            </Link>
-            <Link
-              to="/#contact"
-              className="px-8 py-3 border-2 border-deep-crimson text-deep-crimson font-semibold rounded-md hover:bg-deep-crimson/10 transition-colors"
+            </a>
+            <a
+              href="/#contact"
+              className="inline-block px-8 py-4 bg-transparent text-secondary font-semibold text-lg rounded-sm border-2 border-gold/40 hover:bg-gold/10 transition-all text-center"
             >
               Fill Online Form
-            </Link>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -340,6 +343,7 @@ const Classes = () => {
       <section className="py-24 section-dark">
         <div className="container mx-auto px-4">
           <motion.div {...fadeUp} className="text-center mb-4">
+            <p className="font-ornate text-gold text-lg italic mb-2">Begin Your Journey</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground">
               Admissions Open
             </h2>
@@ -359,7 +363,7 @@ const Classes = () => {
                 key={card.title}
                 {...fadeUp}
                 transition={{ delay: i * 0.1 }}
-                className="bg-ivory/10 backdrop-blur border border-gold/20 rounded-lg p-8"
+                className="bg-ivory/10 backdrop-blur border border-gold/20 rounded-sm p-8 hover:border-gold/50 transition-colors"
               >
                 <h3 className="font-display text-xl font-bold text-gold mb-4">{card.title}</h3>
                 <ul className="space-y-3">
@@ -374,19 +378,19 @@ const Classes = () => {
             ))}
           </div>
 
-          <motion.div {...fadeUp} className="flex justify-center gap-4 mt-12">
-            <Link
-              to="/#contact"
-              className="px-8 py-3 bg-deep-crimson text-primary-foreground font-semibold rounded-md hover:bg-deep-crimson/90 transition-colors"
+          <motion.div {...fadeUp} className="flex flex-col sm:flex-row justify-center gap-4 mt-12">
+            <a
+              href="/#contact"
+              className="inline-block px-8 py-4 bg-primary text-primary-foreground font-semibold text-lg rounded-sm border-2 border-gold/50 hover:bg-primary/80 transition-all hover:border-gold shadow-lg shadow-primary/30 text-center"
             >
               Download Admission Form
-            </Link>
-            <Link
-              to="/#contact"
-              className="px-8 py-3 border-2 border-deep-crimson text-gold font-semibold rounded-md hover:bg-deep-crimson/10 transition-colors"
+            </a>
+            <a
+              href="/#contact"
+              className="inline-block px-8 py-4 bg-transparent text-gold font-semibold text-lg rounded-sm border-2 border-gold/40 hover:bg-gold/10 transition-all text-center"
             >
               Fill Online Form
-            </Link>
+            </a>
           </motion.div>
 
           <motion.p {...fadeUp} className="text-center text-sm text-primary-foreground/50 mt-8">
