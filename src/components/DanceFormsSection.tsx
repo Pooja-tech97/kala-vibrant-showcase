@@ -3,7 +3,6 @@ import OrnamentDivider from "./OrnamentDivider";
 import bharatanatyamImg from "@/assets/bharatanatyam.jpg";
 import kathakImg from "@/assets/kathak.jpg";
 import odissiImg from "@/assets/odissi.jpg";
-import kuchipudiImg from "@/assets/kuchipudi.jpg";
 
 const dances = [
   {
@@ -24,17 +23,11 @@ const dances = [
     description: "An ancient dance form characterized by fluid torso movements, the tribhanga pose, and lyrical devotional themes.",
     image: odissiImg,
   },
-  {
-    name: "Kuchipudi",
-    origin: "Andhra Pradesh",
-    description: "A dynamic dance-drama tradition combining graceful movements with dramatic storytelling and vibrant expressions.",
-    image: kuchipudiImg,
-  },
 ];
 
 const DanceFormsSection = () => (
-  <section id="dance-forms" className="py-24 bg-warm-cream mandala-bg">
-    <div className="container mx-auto px-4">
+  <section id="dance-forms" className="py-16 md:py-24 bg-warm-cream mandala-bg">
+    <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-24 xl:px-32">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -43,13 +36,13 @@ const DanceFormsSection = () => (
         className="text-center mb-4"
       >
         <p className="font-ornate text-secondary text-lg italic mb-2">Our Offerings</p>
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
           Classical Dance Forms
         </h2>
       </motion.div>
       <OrnamentDivider />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-6 sm:mt-8">
         {dances.map((dance, i) => (
           <motion.div
             key={dance.name}

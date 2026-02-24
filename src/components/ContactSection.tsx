@@ -12,8 +12,8 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-warm-cream mandala-bg">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-16 md:py-24 bg-warm-cream mandala-bg">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-24 xl:px-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -21,7 +21,7 @@ const ContactSection = () => {
           className="text-center mb-4"
         >
           <p className="font-ornate text-secondary text-lg italic mb-2">Get In Touch</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
             Begin Your Journey
           </h2>
         </motion.div>

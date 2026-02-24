@@ -1,14 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, useInView, useMotionValue, animate, useTransform, useMotionValueEvent } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 import OrnamentDivider from "./OrnamentDivider";
-import guruImg from "@/assets/guru.jpg";
-import guruLovelyImg from "@/assets/guru-lovely.jpg";
-import guruPriyankaImg from "@/assets/guru-priyanka.jpg";
+import { publicUrl } from "@/lib/utils";
 
 const assistantGurus = [
   {
     name: "Mrs Lovely",
     role: "Vocal Teacher",
-    image: guruLovelyImg,
+    image: publicUrl("g2.jpeg"),
     description:
       "16+ years of experience in teaching vocal techniques, Hindustani classical music theory and performance skills, helping students build a strong and expressive singing foundation.",
     stats: { experience: "16+", specialty: "Hindustani Classical" },
@@ -16,18 +15,40 @@ const assistantGurus = [
   {
     name: "Priyanka Batham",
     role: "Assistant Bharatanatyam & Semi-Classical Teacher",
-    image: guruPriyankaImg,
+    image: publicUrl("g3.jpeg"),
     description:
       "Energetic teacher focusing on stage charisma, fitness and Bollywood choreography for all ages.",
     stats: { experience: "8+", specialty: "Bharatanatyam & Semi-Classical" },
   },
 ];
 
+function RollingNumber({ end, suffix = "+", duration = 1.8 }: { end: number; suffix?: string; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (v) => Math.round(v));
+  const [display, setDisplay] = useState(0);
+
+  useMotionValueEvent(rounded, "change", (v) => setDisplay(v));
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(count, end, { duration, ease: "easeOut" });
+    return () => controls.stop();
+  }, [inView, end, duration, count]);
+
+  return (
+    <span ref={ref}>
+      {display}{suffix}
+    </span>
+  );
+}
+
 const AboutSection = () => (
-  <section id="about" className="py-24 bg-background">
-    <div className="container mx-auto px-4">
+  <section id="about" className="py-16 md:py-24 bg-background">
+    <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-24 xl:px-32">
       {/* Main Guru */}
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -36,7 +57,14 @@ const AboutSection = () => (
           className="relative"
         >
           <div className="relative rounded-sm overflow-hidden border-4 border-gold/30 shadow-2xl">
-            <img src={guruImg} alt="Guru Lakshmi Devi" className="w-full h-[500px] object-cover" />
+            <img src={publicUrl("g1.jpeg")} alt="Acharya Kalpana" className="w-full h-[280px] sm:h-[360px] md:h-[420px] lg:h-[500px] object-cover scale-110 object-top" />
+            <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
+            <a
+              href="/#contact"
+              className="absolute bottom-4 right-4 bg-primary text-primary-foreground px-5 py-2.5 rounded-lg font-body text-sm font-bold hover:bg-primary/90 transition-colors"
+            >
+              Enroll Now
+            </a>
           </div>
           <div className="absolute -bottom-4 -right-4 w-32 h-32 border-2 border-gold/40 rounded-sm -z-10" />
           <div className="absolute -top-4 -left-4 w-32 h-32 border-2 border-gold/40 rounded-sm -z-10" />
@@ -49,32 +77,29 @@ const AboutSection = () => (
           transition={{ duration: 0.8 }}
         >
           <p className="font-ornate text-secondary text-lg italic mb-2">Meet Your Guide</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-2">
-            Guru Lakshmi Devi
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-1">
+            Acharya Kalpana
           </h2>
-          <OrnamentDivider className="justify-start !py-4" />
+          <p className="text-secondary font-semibold text-base mb-4">
+            Founder & Director • Classical Dance Expert
+          </p>
+          <OrnamentDivider className="justify-start !py-2" />
 
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              With over 30 years of dedicated practice and teaching, Guru Lakshmi Devi is a
-              renowned exponent of Bharatanatyam and Kuchipudi. Trained under legendary masters
-              at Kalakshetra, Chennai, she brings an unparalleled depth of knowledge and artistry.
-            </p>
-            <p>
-              Her teaching philosophy centers on nurturing each student's unique expression while
-              maintaining the rigorous discipline and spiritual depth of classical traditions.
-              She has trained over 500 students who have gone on to perform across the world.
-            </p>
-          </div>
+          <p className="text-muted-foreground leading-relaxed mt-4">
+            Founder with years of classical training – guiding students in Bharatanatyam, Kathak and
+            Semi-Classical with refined technique, expression and stage confidence.
+          </p>
 
           <div className="mt-8 grid grid-cols-3 gap-4">
             {[
-              { number: "30+", label: "Years Teaching" },
-              { number: "500+", label: "Students Trained" },
-              { number: "200+", label: "Performances" },
+              { end: 30, suffix: "+", label: "Years Teaching" },
+              { end: 500, suffix: "+", label: "Students Trained" },
+              { end: 200, suffix: "+", label: "Performances" },
             ].map((stat) => (
               <div key={stat.label} className="text-center p-4 bg-card rounded-sm border border-gold/20">
-                <div className="font-display text-3xl font-bold text-primary">{stat.number}</div>
+                <div className="font-display text-3xl font-bold text-primary">
+                  <RollingNumber end={stat.end} suffix={stat.suffix} />
+                </div>
                 <div className="text-xs text-muted-foreground uppercase tracking-wide mt-1">{stat.label}</div>
               </div>
             ))}

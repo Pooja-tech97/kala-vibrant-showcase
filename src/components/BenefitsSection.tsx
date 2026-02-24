@@ -26,8 +26,8 @@ const benefits = [
 ];
 
 const BenefitsSection = () => (
-  <section className="py-24 section-dark">
-    <div className="container mx-auto px-4">
+  <section className="py-16 md:py-24 section-dark">
+    <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-24 xl:px-32">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -35,13 +35,13 @@ const BenefitsSection = () => (
         className="text-center mb-4"
       >
         <p className="font-ornate text-gold text-lg italic mb-2">Why Learn With Us</p>
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary-foreground">
           Benefits of Learning
         </h2>
       </motion.div>
       <OrnamentDivider />
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mt-6 sm:mt-8">
         {benefits.map((b, i) => (
           <motion.div
             key={b.title}
