@@ -7,6 +7,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "Dance Forms", href: "/#dance-forms" },
   { label: "Classes", href: "/#classes" },
+  { label: "Journal", href: "/journal" },
   { label: "About", href: "/#about" },
   { label: "Gallery", href: "/#gallery" },
   { label: "Contact", href: "/#contact" },
