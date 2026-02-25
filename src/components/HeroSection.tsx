@@ -7,8 +7,8 @@ const HERO_IMAGES = [
   { src: publicUrl("4.jpeg"), alt: "Class moment" },
 ];
 
-const ROTATE_INTERVAL_MS = 4500;
-const FADE_DURATION = 1.8;
+const ROTATE_INTERVAL_MS = 3000;
+const FADE_DURATION = 1.2;
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);

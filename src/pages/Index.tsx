@@ -10,6 +10,7 @@ import FeeStructureSection from "@/components/FeeStructureSection";
 import StagePerformanceSection from "@/components/StagePerformanceSection";
 import AdmissionsOpenSection from "@/components/AdmissionsOpenSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import JournalSection from "@/components/JournalSection";
 import GallerySection from "@/components/GallerySection";
 import BenefitsSection from "@/components/BenefitsSection";
 import ContactSection from "@/components/ContactSection";
@@ -41,6 +42,7 @@ const Index = () => {
         <StagePerformanceSection />
         <AdmissionsOpenSection />
         <TestimonialsSection />
+        <JournalSection />
         <GallerySection />
         <BenefitsSection />
         <ContactSection />
