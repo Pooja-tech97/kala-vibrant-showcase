@@ -1,27 +1,25 @@
 import { motion } from "framer-motion";
 import OrnamentDivider from "./OrnamentDivider";
-import bharatanatyamImg from "@/assets/bharatanatyam.jpg";
-import kathakImg from "@/assets/kathak.jpg";
-import odissiImg from "@/assets/odissi.jpg";
+import { publicUrl } from "@/lib/utils";
 
 const dances = [
   {
     name: "Bharatanatyam",
     origin: "Tamil Nadu",
     description: "One of the oldest classical dance traditions, known for its grace, purity, and sculptured poses rooted in ancient temple traditions.",
-    image: bharatanatyamImg,
+    image: publicUrl("10.jpeg"),
   },
   {
     name: "Kathak",
     origin: "North India",
     description: "A storytelling dance form celebrated for its intricate footwork, spins, and expressive gestures drawn from Mughal court culture.",
-    image: kathakImg,
+    image: publicUrl("review-image/3.jpg"),
   },
   {
-    name: "Odissi",
-    origin: "Odisha",
-    description: "An ancient dance form characterized by fluid torso movements, the tribhanga pose, and lyrical devotional themes.",
-    image: odissiImg,
+    name: "Folk Dance",
+    origin: "Across India",
+    description: "Vibrant regional dance forms that celebrate festivals, harvests, and community. From Garba and Bhangra to Giddha and Lavani, each style reflects the rich cultural heritage of its region.",
+    image: publicUrl("1 (1).jpeg"),
   },
 ];
 

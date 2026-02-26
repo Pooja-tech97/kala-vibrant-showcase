@@ -15,4 +15,9 @@ Place these files **directly inside the `public`** folder so they load correctly
 ## Testimonials (avatars)
 - **avatar-1.jpg**, **avatar-2.jpg**, **avatar-3.jpg**  
 
+## Reviews section (public/review-image/)
+Place images in a **review-image** folder inside `public`:
+- **1.jpg**, **2.jpg**, **3.jpg**, **4.jpg** — one per review (cycles with carousel)
+- Or **1.jpg** only — same image for all reviews
+
 Filenames and extensions must match exactly (e.g. `g1.jpeg` not `g1.jpg`).
